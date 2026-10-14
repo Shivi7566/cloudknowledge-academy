@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="escbash_css_3.css">
 
   <style>
-    /* Custom enhancements preserving 100% escbash look & feel */
     :root {
       --bg: #000000;
       --card: rgba(255, 255, 255, 0.02);
@@ -39,7 +38,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Subtle background grid effect */
     .site-grid-bg {
       position: fixed;
       inset: 0;
@@ -52,7 +50,6 @@
       z-index: -1;
     }
 
-    /* Brand lockup customization */
     .brand-ck {
       display: inline-flex;
       align-items: center;
@@ -84,59 +81,6 @@
       color: var(--accent);
     }
 
-    /* Track selector tabs */
-    .track-tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 18px 0 28px;
-    }
-
-    .track-tab-btn {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      color: var(--muted);
-      border-radius: 99px;
-      padding: 8px 18px;
-      font-family: var(--mono);
-      font-size: 13px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .track-tab-btn:hover {
-      border-color: rgba(74, 222, 128, 0.4);
-      color: var(--text);
-    }
-
-    .track-tab-btn.active {
-      background: rgba(74, 222, 128, 0.12);
-      border-color: var(--accent);
-      color: var(--accent);
-      font-weight: 600;
-      box-shadow: 0 0 16px rgba(74, 222, 128, 0.15);
-    }
-
-    /* Track SVG road fine-tuning */
-    .rt-road {
-      stroke: #161a18;
-      stroke-width: 44px;
-      stroke-linecap: round;
-      fill: none;
-    }
-
-    .rt-dash {
-      stroke: #4ade80;
-      stroke-width: 3px;
-      stroke-dasharray: 12 16;
-      fill: none;
-      filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.6));
-    }
-
-    /* Terminal typewriter line */
     .ld-tbody .t-line {
       margin-bottom: 8px;
       line-height: 1.6;
@@ -158,49 +102,17 @@
       margin: 4px 0 10px;
     }
 
-    /* Certification tab styling */
-    .cert-nav-pill {
-      font-family: var(--mono);
-      font-size: 12.5px;
-      padding: 7px 14px;
-      border-radius: 8px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s;
+    .pathways-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 24px;
     }
 
-    .cert-nav-pill.active {
-      background: var(--chip-bg);
-      border-color: var(--accent);
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* Free badge indicator */
-    .badge-yt-free {
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      color: #f87171;
-      border-radius: 99px;
-      font-family: var(--mono);
-      font-size: 10px;
-      padding: 2px 7px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .badge-live-free {
-      background: rgba(74, 222, 128, 0.15);
-      border: 1px solid rgba(74, 222, 128, 0.35);
-      color: #4ade80;
-      border-radius: 99px;
-      font-family: var(--mono);
-      font-size: 10px;
-      padding: 2px 7px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+    @media (max-width: 860px) {
+      .pathways-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -210,20 +122,19 @@
   <div class="app-shell">
     <!-- Topbar matching escbash -->
     <header class="topbar">
-      <a class="brand-ck" href="/">
+      <a class="brand-ck" href="index.html">
         <div class="brand-ck-icon">$&gt;</div>
         <div class="brand-ck-text">Cloud<span>Knowledge</span></div>
       </a>
 
       <div class="topbar-search">
-        <input type="search" id="topSearch" placeholder="Search IAM skills, roadmaps, lab scenarios…" aria-label="Search the catalog"/>
+        <input type="search" placeholder="Search IAM skills, roadmaps, lab scenarios…" aria-label="Search the catalog"/>
       </div>
 
       <nav class="nav-links">
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link active" href="#roadmaps">Roadmaps</a>
-        <a class="nav-link" href="#certifications">Certifications</a>
-        <a class="nav-link" href="#labs">Labs & Playbooks</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link" href="roadmaps.html">Roadmaps</a>
+        <a class="nav-link" href="certifications.html">Certifications</a>
         <a class="nav-link" href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noreferrer" style="color:var(--accent);">YouTube Channel ↗</a>
       </nav>
 
@@ -246,8 +157,9 @@
           </p>
 
           <div class="ld-cta-row">
-            <a class="ld-btn-p" href="#roadmaps">Explore Interactive Roadmaps ⛳</a>
-            <a class="ld-btn-s" href="#skills">Browse Skills Catalog ⚡</a>
+            <a class="ld-btn-p" href="roadmaps.html">Explore Interactive Roadmaps ⛳</a>
+            <a class="ld-btn-s" href="skills.html">Browse Skills Catalog ⚡</a>
+            <a class="ld-btn-s" href="certifications.html">Certifications Blueprint 🎓</a>
             <a class="ld-btn-s" href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noreferrer" style="border-color:rgba(239,68,68,0.4); color:#fca5a5;">
               Watch on YouTube ▶
             </a>
@@ -269,7 +181,7 @@
               <span class="ld-tt">shiva@cloudknowledge: ~/iam-zero-trust-lab</span>
               <span style="margin-left:auto; font-family:var(--mono); font-size:11px; color:#4ade80;">● ONLINE / BASH</span>
             </div>
-            <div class="ld-tbody" id="terminalBody">
+            <div class="ld-tbody">
               <div class="t-line">
                 <span class="t-prompt">ck-admin@prod-iam:~$</span> <span class="t-cmd">az entra id tenant show --query "displayName" -o tsv</span>
               </div>
@@ -306,7 +218,7 @@
             <span><b>●</b> ZERO TRUST ARCHITECTURE</span>
             <span><b>●</b> SC-300 / SC-100 CERTIFICATIONS</span>
             <span><b>●</b> HYBRID IDENTITY & ENTRA CONNECT</span>
-            <!-- Duplicated for continuous loop -->
+            <!-- Loop -->
             <span><b>●</b> MICROSOFT ENTRA ID</span>
             <span><b>●</b> OKTA WORKFORCE IDENTITY</span>
             <span><b>●</b> CYBERARK PAM & EPV</span>
@@ -321,80 +233,106 @@
         </div>
       </section>
 
-      <!-- ROADMAPS SECTION (WINDING TRACK + STEP LADDER) -->
-      <section id="roadmaps" style="padding-top:60px;">
-        <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="#roadmaps">Roadmaps</a>
-          <span aria-hidden="true">›</span>
-          <span id="currentTrackBreadcrumb">Enterprise IAM & Zero Trust Architect</span>
-        </nav>
-
-        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;">
+      <!-- FEATURED ROADMAPS SECTION (Cards linking to dedicated Roadmaps page) -->
+      <section style="padding:60px 0 20px;">
+        <div class="ld-sechead">
           <div>
-            <h1 id="currentTrackHeading" style="font-size:32px; font-weight:700; margin:0 0 8px; letter-spacing:-0.02em;">
-              🛡️ Enterprise IAM & Zero Trust Pathway
-            </h1>
-            <p class="muted" id="currentTrackDesc" style="max-width:72ch; margin:0; font-size:15px; line-height:1.6;">
-              The exact sequence followed by Principal Cloud Identity Architects. Master Microsoft Entra ID, Hybrid Sync, Okta SSO, CyberArk PAM, and Conditional Access policies on production infrastructure.
-            </p>
+            <div style="font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase;">Interactive Learning Pathways</div>
+            <h2>Winding Race Tracks & Step Ladders</h2>
           </div>
+          <a class="ld-all" href="roadmaps.html">View all 4 pathways on interactive track →</a>
+        </div>
 
-          <!-- View Toggle (Track vs Steps) matching escbash -->
-          <div class="grid-toolbar rt-toolbar" style="margin:0;">
-            <div class="view-toggle" role="group" aria-label="Roadmap view">
-              <button type="button" class="active" id="btnViewTrack" title="Race track view">⛳ Track</button>
-              <button type="button" class="" id="btnViewSteps" title="Step ladder list">≡ Steps</button>
+        <p class="muted" style="max-width:70ch; margin:0 0 20px; font-size:15px; line-height:1.6;">
+          Follow guided progression roadmaps with interactive race track checkpoints, prerequisite maps, and direct YouTube video lectures.
+        </p>
+
+        <div class="pathways-grid">
+          <!-- Track 1 -->
+          <a class="ld-path" href="roadmaps.html?track=iam">
+            <div class="ld-pic">🛡️</div>
+            <h3>Enterprise IAM & Zero Trust Architect</h3>
+            <p>From core tenant architecture and Entra Connect sync to Okta SAML/OIDC federation, automated SCIM provisioning, and Conditional Access zero trust gates.</p>
+            <div class="ld-stack">
+              <span>Entra ID</span>
+              <span>Okta</span>
+              <span>SAML 2.0</span>
+              <span>SCIM 2.0</span>
+              <span>PIM</span>
+              <span>Zero Trust</span>
             </div>
-          </div>
-        </div>
+            <div style="margin-top:auto; padding-top:12px; font-family:var(--mono); font-size:13px; color:var(--accent); font-weight:600;">
+              Open 10-Checkpoint Race Track ⛳ →
+            </div>
+          </a>
 
-        <!-- Track Selector Tabs -->
-        <div class="track-tabs">
-          <button class="track-tab-btn active" onclick="switchTrack('iam')">🛡️ IAM & Zero Trust Architect</button>
-          <button class="track-tab-btn" onclick="switchTrack('intune')">☁️ M365, Intune & Endpoint Security</button>
-          <button class="track-tab-btn" onclick="switchTrack('pam')">🔐 Privileged Access Management (CyberArk)</button>
-          <button class="track-tab-btn" onclick="switchTrack('cloudsec')">🎯 Cloud Security & SOC Operations</button>
-        </div>
+          <!-- Track 2 -->
+          <a class="ld-path" href="roadmaps.html?track=intune">
+            <div class="ld-pic">☁️</div>
+            <h3>M365, Intune & Endpoint Security</h3>
+            <p>Modern endpoint lifecycle: Windows Autopilot zero-touch, Apple ADE, Android Enterprise, BitLocker cloud escrow, and MAM mobile app data leakage protection.</p>
+            <div class="ld-stack">
+              <span>Intune</span>
+              <span>Autopilot</span>
+              <span>MDM/MAM</span>
+              <span>Compliance</span>
+              <span>Defender</span>
+              <span>MD-102</span>
+            </div>
+            <div style="margin-top:auto; padding-top:12px; font-family:var(--mono); font-size:13px; color:var(--accent); font-weight:600;">
+              Open 10-Checkpoint Race Track ⛳ →
+            </div>
+          </a>
 
-        <!-- VIEW 1: RACE TRACK (SVG WINDING ROAD) -->
-        <div id="trackViewContainer" class="rt-wrap" style="height:1780px;">
-          <svg class="rt-svg" viewBox="0 0 100 178" preserveAspectRatio="none" aria-hidden="true">
-            <!-- Smooth S-curve track matching escbash -->
-            <path class="rt-road" d="M 26 3 C 26 7.5, 26 7.5, 26 12 C 26 20, 74 20, 74 28 C 74 36, 26 36, 26 44 C 26 52, 74 52, 74 60 C 74 68, 26 68, 26 76 C 26 84, 74 84, 74 92 C 74 100, 26 100, 26 108 C 26 116, 74 116, 74 124 C 74 132, 26 132, 26 140 C 26 148, 74 148, 74 156 C 74 164, 26 164, 26 168 C 26 172, 74 172, 74 175"></path>
-            <path class="rt-dash" d="M 26 3 C 26 7.5, 26 7.5, 26 12 C 26 20, 74 20, 74 28 C 74 36, 26 36, 26 44 C 26 52, 74 52, 74 60 C 74 68, 26 68, 26 76 C 26 84, 74 84, 74 92 C 74 100, 26 100, 26 108 C 26 116, 74 116, 74 124 C 74 132, 26 132, 26 140 C 26 148, 74 148, 74 156 C 74 164, 26 164, 26 168 C 26 172, 74 172, 74 175"></path>
-          </svg>
+          <!-- Track 3 -->
+          <a class="ld-path" href="roadmaps.html?track=pam">
+            <div class="ld-pic">🔐</div>
+            <h3>Privileged Access Management (CyberArk PAM)</h3>
+            <p>Tier-0 domain defense: CyberArk Digital Vault hardening, CPM automated password rotation, PSM session recording proxy, and EPM local admin elimination.</p>
+            <div class="ld-stack">
+              <span>CyberArk</span>
+              <span>EPV Vault</span>
+              <span>CPM</span>
+              <span>PSM</span>
+              <span>PTA</span>
+              <span>Just-In-Time</span>
+            </div>
+            <div style="margin-top:auto; padding-top:12px; font-family:var(--mono); font-size:13px; color:var(--accent); font-weight:600;">
+              Open 10-Checkpoint Race Track ⛳ →
+            </div>
+          </a>
 
-          <div class="rt-flag rt-start" style="left:26%; top:1.8%;">START</div>
-
-          <!-- Dynamic Checkpoints rendered by JS -->
-          <div id="dynamicTrackCheckpoints"></div>
-
-          <div class="rt-flag rt-finish" style="left:74%; top:98.5%;">⚑ FINISH</div>
-        </div>
-
-        <!-- VIEW 2: STEP LADDER (escbash vertical timeline) -->
-        <div id="stepsViewContainer" style="display:none; margin-top:28px;">
-          <ul class="rt-steps" id="dynamicStepsList" style="max-width:850px; margin:0 auto;">
-            <!-- Rendered by JS -->
-          </ul>
+          <!-- Track 4 -->
+          <a class="ld-path" href="roadmaps.html?track=cloudsec">
+            <div class="ld-pic">🎯</div>
+            <h3>Cloud Security & SOC Operations</h3>
+            <p>Cloud Security Posture Management (CSPM), Microsoft Sentinel SIEM/SOAR incident playbooks, KQL threat hunting, and Defender XDR detection engineering.</p>
+            <div class="ld-stack">
+              <span>Defender for Cloud</span>
+              <span>Sentinel</span>
+              <span>KQL</span>
+              <span>SOAR Playbooks</span>
+              <span>Purview</span>
+              <span>AZ-500</span>
+            </div>
+            <div style="margin-top:auto; padding-top:12px; font-family:var(--mono); font-size:13px; color:var(--accent); font-weight:600;">
+              Open 10-Checkpoint Race Track ⛳ →
+            </div>
+          </a>
         </div>
       </section>
 
-      <!-- SKILLS CATALOG SECTION -->
-      <section id="skills" class="ld-cat">
+      <!-- SKILLS CATALOG TEASER -->
+      <section class="ld-cat">
         <div class="ld-sechead">
           <div>
             <div style="font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase;">Core Competencies</div>
             <h2>Enterprise IAM & Security Skills</h2>
           </div>
-          <a class="ld-all" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            View all 15+ playlists on YouTube →
-          </a>
+          <a class="ld-all" href="skills.html">Browse full skills catalog (20+ modules) →</a>
         </div>
 
-        <!-- Main 4-column card grid -->
         <div class="ld-grid">
-          <!-- Card 1 -->
           <a class="ld-card" href="https://www.youtube.com/playlist?list=PL_Xv5gfe_h5c6h5y7B7qZ1zZ8bX6v7_w" target="_blank" rel="noreferrer">
             <span class="ld-chip beg">Beginner to Pro</span>
             <h3>Microsoft Entra ID</h3>
@@ -402,7 +340,6 @@
             <div class="ld-mn"><b>18</b> lectures · Free on YouTube ▶</div>
           </a>
 
-          <!-- Card 2 -->
           <a class="ld-card" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
             <span class="ld-chip int">Core Identity</span>
             <h3>Okta Workforce Identity</h3>
@@ -410,7 +347,6 @@
             <div class="ld-mn"><b>24</b> lectures · Hands-on Labs ▶</div>
           </a>
 
-          <!-- Card 3 -->
           <a class="ld-card" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
             <span class="ld-chip rm">Tier-0 Security</span>
             <h3>CyberArk PAM (Privileged Access)</h3>
@@ -418,309 +354,86 @@
             <div class="ld-mn"><b>16</b> lectures · Production Scenarios ▶</div>
           </a>
 
-          <!-- Card 4 -->
           <a class="ld-card" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
             <span class="ld-chip int">Endpoint & Cloud</span>
             <h3>Microsoft Intune & M365</h3>
             <p>Device enrollment, compliance policies, MAM app protection, and Windows Autopilot zero-touch.</p>
             <div class="ld-mn"><b>20</b> lectures · Enterprise MDM ▶</div>
           </a>
-
-          <!-- Card 5 -->
-          <a class="ld-card" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <span class="ld-chip rm">Zero Trust Engine</span>
-            <h3>Conditional Access & PIM</h3>
-            <p>Signal evaluation, MFA strength, Continuous Access Evaluation, and Just-In-Time role elevation.</p>
-            <div class="ld-mn"><b>14</b> lectures · Policy Blueprints ▶</div>
-          </a>
-
-          <!-- Card 6 -->
-          <a class="ld-card" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <span class="ld-chip int">Federation Protocols</span>
-            <h3>SAML 2.0, OAuth 2.0 & OIDC</h3>
-            <p>Token claims, assertions, PKCE grant flow, signing certificates, and API authorization.</p>
-            <div class="ld-mn"><b>12</b> lectures · Deep Packet Labs ▶</div>
-          </a>
-
-          <!-- Card 7 -->
-          <a class="ld-card" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <span class="ld-chip rm">Cloud SOC & SIEM</span>
-            <h3>Microsoft Sentinel & Defender</h3>
-            <p>Defender for Cloud, Defender for Endpoint/Identity, KQL hunting queries, and security workbooks.</p>
-            <div class="ld-mn"><b>15</b> lectures · SOC Defense ▶</div>
-          </a>
-
-          <!-- Card 8 -->
-          <a class="ld-card" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <span class="ld-chip beg">Hybrid Foundation</span>
-            <h3>Active Directory & Kerberos</h3>
-            <p>On-premises AD DS, Forest trusts, Kerberos delegation, Group Policy, and Entra Connect Sync.</p>
-            <div class="ld-mn"><b>19</b> lectures · Legacy to Cloud ▶</div>
-          </a>
         </div>
 
-        <!-- Mini Cards Grid Divider -->
         <div class="ld-divline">ALL ENTERPRISE MODULES & PLAYLISTS</div>
 
-        <!-- 5-column Miniature Cards matching escbash .ld-minis -->
         <div class="ld-minis">
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <a class="ld-mini" href="skills.html">
             <h4>🔑 Entra Connect Sync</h4>
             <div class="ld-mn">Password Hash & Pass-Through</div>
           </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <a class="ld-mini" href="skills.html">
             <h4>🛡️ PIM Just-In-Time</h4>
             <div class="ld-mn">Role Activation & Approvals</div>
           </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <a class="ld-mini" href="skills.html">
             <h4>⚡ Okta SCIM 2.0</h4>
             <div class="ld-mn">Automated User Lifecycle</div>
           </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <a class="ld-mini" href="skills.html">
             <h4>🔐 CyberArk CPM</h4>
             <div class="ld-mn">Automated Password Changes</div>
           </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <a class="ld-mini" href="skills.html">
             <h4>💻 Intune Autopilot</h4>
             <div class="ld-mn">OOBE Device Provisioning</div>
           </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <h4>⚙️ App Registrations</h4>
-            <div class="ld-mn">Service Principals & Graph API</div>
-          </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <h4>🌐 B2B Guest Collaboration</h4>
-            <div class="ld-mn">Cross-Tenant Access Settings</div>
-          </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <h4>📱 MAM App Protection</h4>
-            <div class="ld-mn">Data Loss Prevention on iOS/Android</div>
-          </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <h4>🔍 Sentinel KQL Queries</h4>
-            <div class="ld-mn">Identity Threat Hunting</div>
-          </a>
-
-          <a class="ld-mini" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
-            <h4>🏢 Active Directory GPO</h4>
-            <div class="ld-mn">Tier-0 Hardening & Kerberos</div>
-          </a>
         </div>
       </section>
 
-      <!-- CERTIFICATION BLUEPRINT & HIERARCHY SECTION -->
-      <section id="certifications" style="padding-top:70px;">
-        <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="#certifications">Certifications</a>
-          <span aria-hidden="true">›</span>
-          <span>Enterprise IAM & Cloud Security Certification Roadmap</span>
-        </nav>
-
-        <div style="margin-bottom:28px;">
-          <h1 style="font-size:32px; font-weight:700; margin:0 0 8px; letter-spacing:-0.02em;">
-            🎓 Certification Blueprint & Recommended Roadmap
-          </h1>
-          <p class="muted" style="max-width:75ch; margin:0; font-size:15px; line-height:1.6;">
-            A structured guide detailing <strong>which certification to take first</strong>, prerequisites, domain weightage, and hands-on mapping to prepare for top-tier enterprise roles.
-          </p>
+      <!-- CERTIFICATION PROGRESSION CALLOUT -->
+      <section style="padding:60px 0 20px;">
+        <div class="ld-sechead">
+          <div>
+            <div style="font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase;">Certification Strategy</div>
+            <h2>Which Certification Should You Take First?</h2>
+          </div>
+          <a class="ld-all" href="certifications.html">Explore full blueprint & practice tests →</a>
         </div>
 
-        <!-- Certification Selector Tabs matching escbash -->
-        <div class="cert-tabs">
-          <button class="cert-tab on" onclick="switchCert('sc300')">SC-300: Microsoft Identity & Access</button>
-          <button class="cert-tab" onclick="switchCert('sc100')">SC-100: Cybersecurity Architect</button>
-          <button class="cert-tab" onclick="switchCert('az500')">AZ-500: Azure Security Technologies</button>
-          <button class="cert-tab" onclick="switchCert('okta')">Okta Certified Professional / Admin</button>
-          <button class="cert-tab" onclick="switchCert('cyberark')">CyberArk Certified Trustee & Defender</button>
-        </div>
-
-        <!-- 2-Column Split matching escbash .cert-split -->
-        <div class="cert-split">
-          <!-- Left Column: Guide, Blueprint & Sample Scenario -->
-          <div class="cert-doc">
-            <!-- Strategic Progression Order Box -->
-            <div style="background:rgba(74,222,128,0.04); border:1px solid rgba(74,222,128,0.2); border-radius:12px; padding:20px; margin-bottom:24px;">
-              <div style="font-family:var(--mono); font-size:11px; color:var(--accent); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;">Strategic Roadmap Order</div>
-              <h3 style="margin:0 0 10px; font-size:17px; color:var(--text); text-decoration:none;">Which Certification Should You Take First?</h3>
-              <div style="display:flex; flex-direction:column; gap:12px; font-size:13.5px; line-height:1.6;">
-                <div style="display:flex; gap:12px;">
-                  <span style="font-family:var(--mono); font-weight:700; color:var(--accent);">01.</span>
-                  <div><strong>Foundational Base:</strong> Start with <code>SC-900</code> (or <code>AZ-900</code>). Covers core security principles, cloud compliance, and Zero Trust concepts. (1-2 months)</div>
-                </div>
-                <div style="display:flex; gap:12px;">
-                  <span style="font-family:var(--mono); font-weight:700; color:var(--accent);">02.</span>
-                  <div><strong>Core Identity Specialist (HIGHEST ROI):</strong> Take <code>SC-300</code> (Microsoft Identity & Access Administrator). This qualifies you for 80% of enterprise IAM engineering jobs. Pair it with <code>Okta Certified Professional</code>. (3-4 months)</div>
-                </div>
-                <div style="display:flex; gap:12px;">
-                  <span style="font-family:var(--mono); font-weight:700; color:var(--accent);">03.</span>
-                  <div><strong>Privilege & Endpoint Mastery:</strong> Proceed to <code>CyberArk Trustee/Defender</code> (PAM) and <code>MD-102</code> (Intune Endpoint). PAM engineers command premium salaries in enterprise banking and healthcare. (3-5 months)</div>
-                </div>
-                <div style="display:flex; gap:12px;">
-                  <span style="font-family:var(--mono); font-weight:700; color:var(--accent);">04.</span>
-                  <div><strong>Master Architect (Capstone):</strong> Take <code>SC-100</code> (Cybersecurity Architect) + <code>AZ-500</code>. Unifies identity, threat protection, data governance, and Zero Trust cloud infrastructure.</div>
-                </div>
-              </div>
+        <div style="background:rgba(74,222,128,0.03); border:1px solid rgba(74,222,128,0.22); border-radius:14px; padding:28px;">
+          <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;">
+            <div style="border-right:1px solid var(--card-border); padding-right:16px;">
+              <span style="font-family:var(--mono); color:var(--accent); font-weight:700; font-size:12px;">STAGE 01</span>
+              <h4 style="margin:8px 0 6px; font-size:16px;">SC-900 / AZ-900</h4>
+              <p class="muted" style="font-size:13.5px; margin:0; line-height:1.5;">Foundational security principles, cloud compliance, and basic access control.</p>
             </div>
 
-            <!-- Dynamic Exam Details (Changed by tabs) -->
-            <div id="dynamicCertContent">
-              <!-- Default SC-300 Content -->
-              <h2 style="font-size:20px; margin-top:0;">Microsoft SC-300: Identity and Access Administrator</h2>
-              <p class="cert-lead">
-                Validates the skills required to implement an enterprise identity management solution using Microsoft Entra ID, configure secure authentication and authorization, and manage identity governance.
-              </p>
+            <div style="border-right:1px solid var(--card-border); padding-right:16px;">
+              <span style="font-family:var(--mono); color:var(--accent); font-weight:700; font-size:12px;">STAGE 02 · CORE</span>
+              <h4 style="margin:8px 0 6px; font-size:16px; color:#4ade80;">SC-300 + Okta</h4>
+              <p class="muted" style="font-size:13.5px; margin:0; line-height:1.5;">Identity Administrator. Qualifies you for 80% of IAM engineering roles.</p>
+            </div>
 
-              <h3>Exam Blueprint & Domain Weightage</h3>
-              <div class="cert-tablewrap">
-                <table class="cert-bp">
-                  <thead>
-                    <tr>
-                      <th>Exam Domain</th>
-                      <th class="n">Weight</th>
-                      <th>Tested Capabilities</th>
-                      <th>Mapped Lecture</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="cert-bp-row">
-                      <td><strong>1. Implement an Identity Management Solution</strong></td>
-                      <td class="n">20-25%</td>
-                      <td>Configure Entra Connect & Cloud Sync, manage user/group lifecycles, external identities (B2B).</td>
-                      <td><a href="https://www.youtube.com/playlist?list=PL_Xv5gfe_h5c6h5y7B7qZ1zZ8bX6v7_w" target="_blank" rel="noreferrer" style="color:var(--accent); font-family:var(--mono); font-size:12px;">Entra ID Playlist ▶</a></td>
-                    </tr>
-                    <tr class="cert-bp-row">
-                      <td><strong>2. Implement Authentication & Access Management</strong></td>
-                      <td class="n">25-30%</td>
-                      <td>Conditional Access policies, Multifactor Authentication (MFA), passwordless authentication, SSPR.</td>
-                      <td><a href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer" style="color:var(--accent); font-family:var(--mono); font-size:12px;">CA Policies ▶</a></td>
-                    </tr>
-                    <tr class="cert-bp-row">
-                      <td><strong>3. Implement Access Management for Apps</strong></td>
-                      <td class="n">15-20%</td>
-                      <td>App registrations, Enterprise Applications, SAML/OIDC SSO, SCIM provisioning, Application Proxy.</td>
-                      <td><a href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer" style="color:var(--accent); font-family:var(--mono); font-size:12px;">SSO & Apps ▶</a></td>
-                    </tr>
-                    <tr class="cert-bp-row">
-                      <td><strong>4. Plan & Implement Identity Governance</strong></td>
-                      <td class="n">20-25%</td>
-                      <td>Privileged Identity Management (PIM), entitlement management, access reviews, audit & sign-in logs.</td>
-                      <td><a href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer" style="color:var(--accent); font-family:var(--mono); font-size:12px;">PIM Governance ▶</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <div style="border-right:1px solid var(--card-border); padding-right:16px;">
+              <span style="font-family:var(--mono); color:var(--accent); font-weight:700; font-size:12px;">STAGE 03 · SPECIALIST</span>
+              <h4 style="margin:8px 0 6px; font-size:16px;">CyberArk + MD-102</h4>
+              <p class="muted" style="font-size:13.5px; margin:0; line-height:1.5;">PAM security and Intune modern management. High-demand enterprise niche.</p>
+            </div>
 
-              <h3 style="margin-top:28px;">Interactive Practice Question Scenario</h3>
-              <div class="cert-sample" open>
-                <summary>
-                  <span class="cert-sample-domain">Domain 2 · Conditional Access & Risk</span>
-                  <strong>Scenario: Enforcing Zero Trust for Tier-0 Privileged Administrators</strong>
-                </summary>
-                <p style="font-size:13px; color:var(--muted); margin:10px 0 6px;">
-                  Your enterprise requires all Global Administrators to authenticate only from Intune-compliant corporate devices and pass phishing-resistant FIDO2 MFA whenever accessing the Microsoft Entra admin center from an untrusted IP. What is the most resilient architecture?
-                </p>
-                <ul class="cert-opts">
-                  <li>
-                    <span class="k">A</span>
-                    <span>Create a trusted named IP location and exclude it from MFA requirements entirely.</span>
-                  </li>
-                  <li class="ok">
-                    <span class="k">B</span>
-                    <span>Configure a Conditional Access policy targeting Directory Roles (Global Admin), cloud app (Azure Portal), grant controls: Phishing-resistant MFA + Require Compliant Device, with session sign-in frequency set to 1 hour.</span>
-                  </li>
-                  <li>
-                    <span class="k">C</span>
-                    <span>Enable Security Defaults in the Microsoft Entra tenant and disable legacy authentication protocols.</span>
-                  </li>
-                  <li>
-                    <span class="k">D</span>
-                    <span>Assign permanent Global Administrator roles to all IT staff with SMS-based MFA enabled on their personal phones.</span>
-                  </li>
-                </ul>
-                <div style="background:rgba(74,222,128,0.06); border-left:3px solid var(--accent); padding:10px 14px; border-radius:0 8px 8px 0; margin-top:10px;">
-                  <strong style="color:var(--accent); font-size:12px; font-family:var(--mono);">ARCHITECTURE RATIONALE:</strong>
-                  <p class="cert-rationale" style="margin-top:4px;">
-                    Option <strong>B</strong> satisfies the Zero Trust principle "Never Trust, Always Verify". Requiring both Phishing-Resistant MFA (FIDO2 / Certificate-Based) and a Compliant Device prevents adversary-in-the-middle (AiTM) session hijacking and rogue device enrollment. Security Defaults cannot enforce granular phishing-resistant controls.
-                  </p>
-                </div>
-              </div>
+            <div>
+              <span style="font-family:var(--mono); color:var(--accent); font-weight:700; font-size:12px;">STAGE 04 · CAPSTONE</span>
+              <h4 style="margin:8px 0 6px; font-size:16px;">SC-100 + AZ-500</h4>
+              <p class="muted" style="font-size:13.5px; margin:0; line-height:1.5;">Cybersecurity Architect. Designing end-to-end Zero Trust hybrid systems.</p>
             </div>
           </div>
 
-          <!-- Right Column (Sticky Rail matching escbash .cert-rail) -->
-          <div class="cert-rail">
-            <div class="cert-card">
-              <h3>Exam Readiness Blueprint</h3>
-              <div class="cert-readiness pass" id="certScore">Passing: 700 / 1000</div>
-              
-              <div class="cert-meter">
-                <i style="width:85%;"></i>
-              </div>
-              <p class="cert-tiny">Recommended Hands-on Readiness: <b>85%</b></p>
-
-              <div class="cert-exams">
-                <div class="cert-exam done">
-                  <span class="n">STAGE 01</span>
-                  <span class="t pass">Done ✓</span>
-                  <span class="s">Core Theory</span>
-                </div>
-                <div class="cert-exam next">
-                  <span class="n">STAGE 02</span>
-                  <span class="t pass">In Progress</span>
-                  <span class="s">Hands-on Labs</span>
-                </div>
-                <div class="cert-exam">
-                  <span class="n">STAGE 03</span>
-                  <span class="t warn">Pending</span>
-                  <span class="s">Blueprint Review</span>
-                </div>
-                <div class="cert-exam">
-                  <span class="n">STAGE 04</span>
-                  <span class="t">Pending</span>
-                  <span class="s">Mock Exam Sim</span>
-                </div>
-              </div>
-
-              <a class="cert-btn pri" href="https://www.youtube.com/playlist?list=PL_Xv5gfe_h5c6h5y7B7qZ1zZ8bX6v7_w" target="_blank" rel="noreferrer">
-                Watch SC-300 Playlist ▶
-              </a>
-              <a class="cert-btn" href="#roadmaps">
-                View Learning Pathway ⛳
-              </a>
-
-              <div class="cert-chips">
-                <span class="cert-chip">#SC300</span>
-                <span class="cert-chip">#EntraID</span>
-                <span class="cert-chip">#ZeroTrust</span>
-                <span class="cert-chip">#IAM</span>
-                <span class="cert-chip">#ConditionalAccess</span>
-              </div>
-            </div>
-
-            <!-- Free Exam Prep Card -->
-            <div class="cert-card" style="border-color:rgba(74,222,128,0.25);">
-              <h3 style="color:var(--accent);">Cloud Knowledge Advantage</h3>
-              <p style="font-size:13px; line-height:1.6; color:var(--muted); margin:0 0 12px;">
-                Every lecture on the channel directly covers official Microsoft, Okta, and CyberArk exam domains with live lab demonstrations — no paid course paywalls.
-              </p>
-              <a href="https://www.youtube.com/@Cloud-Knowledge?sub_confirmation=1" target="_blank" rel="noreferrer" style="font-family:var(--mono); font-size:12.5px; color:var(--accent); text-decoration:none; font-weight:600;">
-                Subscribe on YouTube ↗
-              </a>
-            </div>
+          <div style="margin-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; border-top:1px solid var(--card-border); padding-top:18px;">
+            <span style="font-size:14px; color:var(--muted);">Complete domain weight tables, passing scores, and interactive exam practice questions available.</span>
+            <a class="ld-btn-p" href="certifications.html" style="font-size:14px; padding:9px 18px;">Open Certification Blueprints 🎓 →</a>
           </div>
         </div>
       </section>
 
-      <!-- LABS & PLAYBOOKS SECTION -->
-      <section id="labs" style="padding-top:70px;">
+      <!-- HANDS-ON LABS & ARCHITECTURE NOTES -->
+      <section style="padding:60px 0 20px;">
         <div class="ld-sechead">
           <div>
             <div style="font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase;">Practical Architecture</div>
@@ -790,26 +503,24 @@
 
         <div class="site-footer-col">
           <div class="site-footer-title">Roadmaps</div>
-          <a href="#roadmaps" onclick="switchTrack('iam')">Enterprise IAM & Zero Trust</a>
-          <a href="#roadmaps" onclick="switchTrack('intune')">M365, Intune & Endpoint</a>
-          <a href="#roadmaps" onclick="switchTrack('pam')">CyberArk PAM Security</a>
-          <a href="#roadmaps" onclick="switchTrack('cloudsec')">Cloud Security & SOC</a>
+          <a href="roadmaps.html?track=iam">Enterprise IAM & Zero Trust</a>
+          <a href="roadmaps.html?track=intune">M365, Intune & Endpoint</a>
+          <a href="roadmaps.html?track=pam">CyberArk PAM Security</a>
+          <a href="roadmaps.html?track=cloudsec">Cloud Security & SOC</a>
         </div>
 
         <div class="site-footer-col">
-          <div class="site-footer-title">Certifications</div>
-          <a href="#certifications" onclick="switchCert('sc300')">SC-300: Identity Administrator</a>
-          <a href="#certifications" onclick="switchCert('sc100')">SC-100: Cybersecurity Architect</a>
-          <a href="#certifications" onclick="switchCert('az500')">AZ-500: Azure Security</a>
-          <a href="#certifications" onclick="switchCert('okta')">Okta Certified Professional</a>
-          <a href="#certifications" onclick="switchCert('cyberark')">CyberArk Trustee / Defender</a>
+          <div class="site-footer-title">Platform</div>
+          <a href="index.html">Home</a>
+          <a href="skills.html">Skills Catalog</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noreferrer">YouTube Playlists</a>
         </div>
 
         <div class="site-footer-col">
-          <div class="site-footer-title">Community & Channel</div>
+          <div class="site-footer-title">Community</div>
           <a href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noreferrer">YouTube (@Cloud-Knowledge)</a>
           <a href="https://github.com/Shivi7566" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://cloudknowledge.in" target="_blank" rel="noreferrer">CloudKnowledge.in</a>
         </div>
       </div>
@@ -821,902 +532,13 @@
     </footer>
   </div>
 
-  <!-- INTERACTIVE LOGIC & DATA -->
   <script>
-    // ROADMAP TRACKS DATA
-    const trackData = {
-      iam: {
-        title: "🛡️ Enterprise IAM & Zero Trust Pathway",
-        breadcrumb: "Enterprise IAM & Zero Trust Architect",
-        desc: "The exact sequence followed by Principal Cloud Identity Architects. Master Microsoft Entra ID, Hybrid Sync, Okta SSO, CyberArk PAM, and Conditional Access policies on production infrastructure.",
-        checkpoints: [
-          {
-            num: 1,
-            icon: "🔑",
-            name: "Microsoft Entra ID Fundamentals",
-            kicker: "Checkpoint 1 · Foundation",
-            meta: "18 lectures · Free on YouTube ▶",
-            link: "https://www.youtube.com/playlist?list=PL_Xv5gfe_h5c6h5y7B7qZ1zZ8bX6v7_w",
-            left: "26%",
-            top: "5.6%"
-          },
-          {
-            num: 2,
-            icon: "🔄",
-            name: "Hybrid Identity & Entra Connect",
-            kicker: "Checkpoint 2 · Hybrid Core",
-            meta: "PHS, PTA, Federation & Cloud Sync ▶",
-            link: "https://www.youtube.com/playlist?list=PL_Xv5gfe_h5c6h5y7B7qZ1zZ8bX6v7_w",
-            left: "74%",
-            top: "14.8%"
-          },
-          {
-            num: 3,
-            icon: "🌐",
-            name: "Okta Workforce & Universal Directory",
-            kicker: "Checkpoint 3 · Federation",
-            meta: "24 lectures · SAML 2.0 & OIDC ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "23.8%"
-          },
-          {
-            num: 4,
-            icon: "⚡",
-            name: "Automated SCIM User Provisioning",
-            kicker: "Checkpoint 4 · Automation",
-            meta: "App integration & HR-Driven Ingestion ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "32.8%"
-          },
-          {
-            num: 5,
-            icon: "🛡️",
-            name: "Conditional Access & Risk Policies",
-            kicker: "Checkpoint 5 · Zero Trust Engine",
-            meta: "Signals, Session Controls, Phishing-Resistant MFA ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "41.8%"
-          },
-          {
-            num: 6,
-            icon: "🔐",
-            name: "CyberArk PAM & Safe Architecture",
-            kicker: "Checkpoint 6 · Tier-0 PAM",
-            meta: "EPV, CPM Rotation, PSM Isolation ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "50.8%"
-          },
-          {
-            num: 7,
-            icon: "⏱️",
-            name: "Privileged Identity Management (PIM)",
-            kicker: "Checkpoint 7 · Governance",
-            meta: "Just-In-Time role activation & Access Reviews ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "59.8%"
-          },
-          {
-            num: 8,
-            icon: "📱",
-            name: "Microsoft Intune & Device Compliance",
-            kicker: "Checkpoint 8 · Endpoint Trust",
-            meta: "MDM/MAM, Compliant Device Signals ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "68.8%"
-          },
-          {
-            num: 9,
-            icon: "🔍",
-            name: "Microsoft Sentinel & Identity Hunting",
-            kicker: "Checkpoint 9 · Cloud SOC",
-            meta: "KQL queries for AiTM & Impossible Travel ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "77.8%"
-          },
-          {
-            num: 10,
-            icon: "🏛️",
-            name: "Enterprise Zero Trust Capstone (SC-100)",
-            kicker: "Checkpoint 10 · Enterprise Architect",
-            meta: "End-to-End Enterprise Design Blueprint ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "86.8%"
-          }
-        ]
-      },
-
-      intune: {
-        title: "☁️ M365, Intune & Endpoint Security Pathway",
-        breadcrumb: "M365, Intune & Endpoint Security",
-        desc: "End-to-end modern management roadmap: Windows Autopilot, Apple Business Manager, Android Enterprise, Endpoint Security Antivirus, and App Protection Policies.",
-        checkpoints: [
-          {
-            num: 1,
-            icon: "☁️",
-            name: "M365 Tenant & License Architecture",
-            kicker: "Checkpoint 1 · M365 Setup",
-            meta: "E3/E5 Security, Domains, Admin Center ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "5.6%"
-          },
-          {
-            num: 2,
-            icon: "💻",
-            name: "Windows Autopilot Zero-Touch Setup",
-            kicker: "Checkpoint 2 · Device Provisioning",
-            meta: "Hardware hash, OOBE Profiles, Hybrid Join ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "14.8%"
-          },
-          {
-            num: 3,
-            icon: "📱",
-            name: "Apple Business Manager & iOS MDM",
-            kicker: "Checkpoint 3 · Mobile Fleet",
-            meta: "Automated Device Enrollment (ADE), VPP ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "23.8%"
-          },
-          {
-            num: 4,
-            icon: "🤖",
-            name: "Android Enterprise Work Profiles",
-            kicker: "Checkpoint 4 · Android BYOD",
-            meta: "Dedicated, Fully Managed & Work Profile ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "32.8%"
-          },
-          {
-            num: 5,
-            icon: "🛡️",
-            name: "Compliance Policies & CA Integration",
-            kicker: "Checkpoint 5 · Zero Trust Gate",
-            meta: "BitLocker, TPM 2.0, Secure Boot Enforced ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "41.8%"
-          },
-          {
-            num: 6,
-            icon: "📦",
-            name: "MAM App Protection & Data Encryption",
-            kicker: "Checkpoint 6 · Data Loss Prevention",
-            meta: "Cut/Copy/Paste restrictions on Edge & Outlook ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "50.8%"
-          },
-          {
-            num: 7,
-            icon: "🎯",
-            name: "Defender for Endpoint Integration",
-            kicker: "Checkpoint 7 · EDR & Antivirus",
-            meta: "Attack Surface Reduction (ASR) rules ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "59.8%"
-          },
-          {
-            num: 8,
-            icon: "📜",
-            name: "Intune Scripts, Win32 Apps & Packaging",
-            kicker: "Checkpoint 8 · Win32 Management",
-            meta: "IntuneWinAppUtil, PowerShell Remediation ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "68.8%"
-          },
-          {
-            num: 9,
-            icon: "📊",
-            name: "Update Rings for Windows & macOS",
-            kicker: "Checkpoint 9 · Patch Management",
-            meta: "Quality & Feature Update rings ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "77.8%"
-          },
-          {
-            num: 10,
-            icon: "🏆",
-            name: "MD-102 Endpoint Administrator Capstone",
-            kicker: "Checkpoint 10 · Certification Ready",
-            meta: "Full MD-102 Exam Blueprint Verification ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "86.8%"
-          }
-        ]
-      },
-
-      pam: {
-        title: "🔐 Privileged Access Management (PAM) Pathway",
-        breadcrumb: "CyberArk PAM Security Specialist",
-        desc: "Master Enterprise Password Vault (EPV), CPM password management, PSM isolation, and privilege threat containment in Tier-0 enterprise environments.",
-        checkpoints: [
-          {
-            num: 1,
-            icon: "🏦",
-            name: "Tier-0 Privileged Access Fundamentals",
-            kicker: "Checkpoint 1 · Architecture",
-            meta: "Red Forest, Administrative Tiering, EPV ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "5.6%"
-          },
-          {
-            num: 2,
-            icon: "🏛️",
-            name: "CyberArk Digital Vault Deployment",
-            kicker: "Checkpoint 2 · Vault Core",
-            meta: "Server 2022 Hardening, KMS, DR Vault ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "14.8%"
-          },
-          {
-            num: 3,
-            icon: "⚙️",
-            name: "Central Policy Manager (CPM) Configuration",
-            kicker: "Checkpoint 3 · Account Rotation",
-            meta: "Reconcile, Verify, Change Plugin Workflows ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "23.8%"
-          },
-          {
-            num: 4,
-            icon: "📺",
-            name: "Privileged Session Manager (PSM)",
-            kicker: "Checkpoint 4 · Session Isolation",
-            meta: "RDP/SSH Proxy, Keystroke Recording ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "32.8%"
-          },
-          {
-            num: 5,
-            icon: "🛡️",
-            name: "Safe Design & Granular Access Control",
-            kicker: "Checkpoint 5 · Vault Governance",
-            meta: "Dual-Control, Ticketing System (ServiceNow) ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "41.8%"
-          },
-          {
-            num: 6,
-            icon: "💻",
-            name: "Endpoint Privilege Manager (EPM)",
-            kicker: "Checkpoint 6 · Least Privilege",
-            meta: "Local admin removal, Application control ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "50.8%"
-          },
-          {
-            num: 7,
-            icon: "☁️",
-            name: "CyberArk Privilege Cloud (SaaS Architecture)",
-            kicker: "Checkpoint 7 · Modern PAM",
-            meta: "Secure Cloud Connectors, Identity Connector ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "59.8%"
-          },
-          {
-            num: 8,
-            icon: "⚡",
-            name: "Just-In-Time (JIT) & Ephemeral Access",
-            kicker: "Checkpoint 8 · Standing Privilege Zero",
-            meta: "Dynamic Safe creation, on-demand admin rights ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "68.8%"
-          },
-          {
-            num: 9,
-            icon: "🚨",
-            name: "CyberArk PTA (Privileged Threat Analytics)",
-            kicker: "Checkpoint 9 · Threat Detection",
-            meta: "Pass-the-Hash & Golden Ticket alerts ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "77.8%"
-          },
-          {
-            num: 10,
-            icon: "🎖️",
-            name: "CyberArk Defender & Sentry Capstone",
-            kicker: "Checkpoint 10 · Certification Path",
-            meta: "Official PAM Blueprint & Live Troubleshooting ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "86.8%"
-          }
-        ]
-      },
-
-      cloudsec: {
-        title: "🎯 Cloud Security & SOC Operations Pathway",
-        breadcrumb: "Cloud Security & SOC Operations",
-        desc: "Protect hybrid enterprise clouds using Microsoft Defender for Cloud, Microsoft Sentinel SIEM/SOAR, KQL query hunting, and Zero Trust posture management.",
-        checkpoints: [
-          {
-            num: 1,
-            icon: "🛡️",
-            name: "Cloud Security Posture Management (CSPM)",
-            kicker: "Checkpoint 1 · Posture Baseline",
-            meta: "Defender for Cloud, Secure Score, Regulatory Compliance ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "5.6%"
-          },
-          {
-            num: 2,
-            icon: "🔍",
-            name: "Kusto Query Language (KQL) Mastery",
-            kicker: "Checkpoint 2 · Investigation Language",
-            meta: "Sign-in logs, DeviceNetworkEvents, Audit logs ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "14.8%"
-          },
-          {
-            num: 3,
-            icon: "🚨",
-            name: "Microsoft Sentinel SIEM Architecture",
-            kicker: "Checkpoint 3 · Cloud SIEM",
-            meta: "Data connectors, Workspaces, Analytic Rules ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "23.8%"
-          },
-          {
-            num: 4,
-            icon: "⚡",
-            name: "Sentinel SOAR & Logic App Playbooks",
-            kicker: "Checkpoint 4 · Automated Response",
-            meta: "Auto-isolate infected device, disable compromised user ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "32.8%"
-          },
-          {
-            num: 5,
-            icon: "🎯",
-            name: "Defender for Endpoint (MDE) Defense",
-            kicker: "Checkpoint 5 · EDR & XDR",
-            meta: "Live Response, Automated Investigation & Remediation (AIR) ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "41.8%"
-          },
-          {
-            num: 6,
-            icon: "🔑",
-            name: "Defender for Identity (MDI) Deployment",
-            kicker: "Checkpoint 6 · AD Domain Protection",
-            meta: "Detect DCSync, Kerberoasting & NTLM relay ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "50.8%"
-          },
-          {
-            num: 7,
-            icon: "☁️",
-            name: "Defender for Cloud Apps (CASB)",
-            kicker: "Checkpoint 7 · Shadow IT",
-            meta: "Conditional Access App Control, OAuth app sanctioning ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "59.8%"
-          },
-          {
-            num: 8,
-            icon: "📦",
-            name: "Microsoft Purview Information Protection",
-            kicker: "Checkpoint 8 · Data Governance",
-            meta: "Sensitivity labels, Data Loss Prevention (DLP), eDiscovery ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "68.8%"
-          },
-          {
-            num: 9,
-            icon: "🌐",
-            name: "Network Security & Private Link Architecture",
-            kicker: "Checkpoint 9 · Perimeter Hardening",
-            meta: "Azure Firewall, NSG, Bastion, Private Endpoints ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "26%",
-            top: "77.8%"
-          },
-          {
-            num: 10,
-            icon: "🎖️",
-            name: "AZ-500 & SC-200 Capstone Simulation",
-            kicker: "Checkpoint 10 · Real SOC Operations",
-            meta: "Live Incident Response Simulation & Forensics ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-            left: "74%",
-            top: "86.8%"
-          }
-        ]
-      }
-    };
-
-    // CURRENT ACTIVE TRACK
-    let activeTrackKey = "iam";
-
-    function renderTrack(trackKey) {
-      activeTrackKey = trackKey;
-      const data = trackData[trackKey];
-      if (!data) return;
-
-      document.getElementById("currentTrackHeading").textContent = data.title;
-      document.getElementById("currentTrackBreadcrumb").textContent = data.breadcrumb;
-      document.getElementById("currentTrackDesc").textContent = data.desc;
-
-      // Update Track Selector Buttons active class
-      document.querySelectorAll(".track-tab-btn").forEach((btn, idx) => {
-        const keys = ["iam", "intune", "pam", "cloudsec"];
-        btn.classList.toggle("active", keys[idx] === trackKey);
-      });
-
-      // Render Track Checkpoints (SVG Road Nodes)
-      const trackContainer = document.getElementById("dynamicTrackCheckpoints");
-      trackContainer.innerHTML = "";
-
-      data.checkpoints.forEach((cp) => {
-        const a = document.createElement("a");
-        a.className = "rt-cp upcoming";
-        a.style.left = cp.left;
-        a.style.top = cp.top;
-        a.href = cp.link;
-        a.target = "_blank";
-        a.rel = "noreferrer";
-
-        a.innerHTML = `
-          <span class="rt-cp-badge"><span style="font-size:18px;">${cp.icon}</span></span>
-          <span class="rt-cp-body">
-            <span class="rt-cp-kicker">${cp.kicker}</span>
-            <span class="rt-cp-name">${cp.name}</span>
-            <span class="rt-cp-meta">${cp.meta}</span>
-          </span>
-        `;
-        trackContainer.appendChild(a);
-      });
-
-      // Render Step Ladder List (escbash .rt-steps)
-      const stepsContainer = document.getElementById("dynamicStepsList");
-      stepsContainer.innerHTML = "";
-
-      data.checkpoints.forEach((cp, idx) => {
-        const li = document.createElement("li");
-        li.className = "rt-step upcoming";
-
-        li.innerHTML = `
-          <div class="rt-step-dot"></div>
-          <div class="rt-step-wrap">
-            <a class="rt-step-card" href="${cp.link}" target="_blank" rel="noreferrer">
-              <span class="rt-cp-badge"><span style="font-size:18px;">${cp.icon}</span></span>
-              <div class="rt-step-body">
-                <span class="rt-cp-kicker">${cp.kicker}</span>
-                <div class="rt-cp-name">
-                  ${cp.name}
-                  <span class="badge-live-free">FREE ON YOUTUBE ▶</span>
-                </div>
-                <div class="rt-cp-meta" style="color:var(--muted); font-size:13px; font-family:var(--mono); margin-top:2px;">
-                  ${cp.meta}
-                </div>
-              </div>
-              <span class="rt-step-lock" style="color:var(--accent);">▶</span>
-            </a>
-          </div>
-        `;
-        stepsContainer.appendChild(li);
-      });
-    }
-
-    function switchTrack(trackKey) {
-      renderTrack(trackKey);
-    }
-
-    // VIEW TOGGLE (Track vs Steps)
-    const btnViewTrack = document.getElementById("btnViewTrack");
-    const btnViewSteps = document.getElementById("btnViewSteps");
-    const trackViewContainer = document.getElementById("trackViewContainer");
-    const stepsViewContainer = document.getElementById("stepsViewContainer");
-
-    btnViewTrack.addEventListener("click", () => {
-      btnViewTrack.classList.add("active");
-      btnViewSteps.classList.remove("active");
-      trackViewContainer.style.display = "block";
-      stepsViewContainer.style.display = "none";
-    });
-
-    btnViewSteps.addEventListener("click", () => {
-      btnViewSteps.classList.add("active");
-      btnViewTrack.classList.remove("active");
-      trackViewContainer.style.display = "none";
-      stepsViewContainer.style.display = "block";
-    });
-
-    // CERTIFICATION TAB SWITCHER DATA
-    const certData = {
-      sc300: {
-        title: "Microsoft SC-300: Identity and Access Administrator",
-        score: "Passing: 700 / 1000",
-        readiness: "85%",
-        lead: "Validates the skills required to implement an enterprise identity management solution using Microsoft Entra ID, configure secure authentication and authorization, and manage identity governance.",
-        link: "https://www.youtube.com/playlist?list=PL_Xv5gfe_h5c6h5y7B7qZ1zZ8bX6v7_w",
-        rows: [
-          {
-            domain: "1. Implement an Identity Management Solution",
-            weight: "20-25%",
-            tested: "Configure Entra Connect & Cloud Sync, manage user/group lifecycles, external identities (B2B).",
-            lec: "Entra ID Playlist ▶",
-            link: "https://www.youtube.com/playlist?list=PL_Xv5gfe_h5c6h5y7B7qZ1zZ8bX6v7_w"
-          },
-          {
-            domain: "2. Implement Authentication & Access Management",
-            weight: "25-30%",
-            tested: "Conditional Access policies, Multifactor Authentication (MFA), passwordless authentication, SSPR.",
-            lec: "CA Policies ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "3. Implement Access Management for Apps",
-            weight: "15-20%",
-            tested: "App registrations, Enterprise Applications, SAML/OIDC SSO, SCIM provisioning, Application Proxy.",
-            lec: "SSO & Apps ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "4. Plan & Implement Identity Governance",
-            weight: "20-25%",
-            tested: "Privileged Identity Management (PIM), entitlement management, access reviews, audit & sign-in logs.",
-            lec: "PIM Governance ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          }
-        ],
-        scenario: {
-          domain: "Domain 2 · Conditional Access & Risk",
-          title: "Scenario: Enforcing Zero Trust for Tier-0 Privileged Administrators",
-          text: "Your enterprise requires all Global Administrators to authenticate only from Intune-compliant corporate devices and pass phishing-resistant FIDO2 MFA whenever accessing the Microsoft Entra admin center from an untrusted IP. What is the most resilient architecture?",
-          opts: [
-            { k: "A", t: "Create a trusted named IP location and exclude it from MFA requirements entirely.", ok: false },
-            { k: "B", t: "Configure a Conditional Access policy targeting Directory Roles (Global Admin), cloud app (Azure Portal), grant controls: Phishing-resistant MFA + Require Compliant Device, with session sign-in frequency set to 1 hour.", ok: true },
-            { k: "C", t: "Enable Security Defaults in the Microsoft Entra tenant and disable legacy authentication protocols.", ok: false },
-            { k: "D", t: "Assign permanent Global Administrator roles to all IT staff with SMS-based MFA enabled on their personal phones.", ok: false }
-          ],
-          rationale: "Option B satisfies the Zero Trust principle 'Never Trust, Always Verify'. Requiring both Phishing-Resistant MFA (FIDO2 / Certificate-Based) and a Compliant Device prevents adversary-in-the-middle (AiTM) session hijacking and rogue device enrollment."
-        }
-      },
-
-      sc100: {
-        title: "Microsoft SC-100: Cybersecurity Architect",
-        score: "Passing: 700 / 1000",
-        readiness: "80%",
-        lead: "The pinnacle capstone certification for cybersecurity architects. Evaluates your ability to design a holistic Zero Trust architecture across identity, endpoints, cloud apps, data, and infrastructure.",
-        link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-        rows: [
-          {
-            domain: "1. Design a Zero Trust Strategy & Architecture",
-            weight: "20-25%",
-            tested: "Zero Trust security framework, ransomware resilience, security posture management, regulatory compliance.",
-            lec: "Zero Trust Arch ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "2. Evaluate Governance, Risk & Compliance (GRC)",
-            weight: "10-15%",
-            tested: "Purview data protection, compliance manager, privacy & insider risk policies.",
-            lec: "Purview Security ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "3. Design Infrastructure Security & Workload Defense",
-            weight: "20-25%",
-            tested: "Defender for Cloud, hybrid cloud workload security, serverless, container security.",
-            lec: "Cloud Defense ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "4. Design a Strategy for Data & Applications",
-            weight: "15-20%",
-            tested: "Data classification, SQL transparent encryption, Defender for Cloud Apps (CASB).",
-            lec: "CASB Architecture ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "5. Recommend Security Operations Capabilities (SecOps)",
-            weight: "20-25%",
-            tested: "Microsoft Sentinel SIEM/SOAR, Microsoft Defender XDR integration, incident containment playbooks.",
-            lec: "Sentinel SecOps ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          }
-        ],
-        scenario: {
-          domain: "Domain 1 · Zero Trust Architecture",
-          title: "Scenario: Architecting Segmentation for Legacy On-Premises Domain Controllers",
-          text: "A financial organization is migrating workloads to Azure while retaining Active Directory Domain Controllers on-premises. How should the enterprise architect design the administrative tiering to prevent lateral movement from compromised developer workstations?",
-          opts: [
-            { k: "A", t: "Grant developers Domain Admin credentials and require SMS MFA upon login.", ok: false },
-            { k: "B", t: "Implement an Administrative Tiering Model (Tier 0/1/2) with dedicated Privileged Access Workstations (PAWs), Cloud PIM, and Defender for Identity sensors deployed on all domain controllers.", ok: true },
-            { k: "C", t: "Migrate all domain controllers directly to public Azure VMs with open RDP ports protected by NSGs.", ok: false },
-            { k: "D", t: "Disable Kerberos delegation and convert all domain user accounts into Entra ID B2B guests.", ok: false }
-          ],
-          rationale: "Option B enforces strict Tier-0 isolation: Tier-0 credentials never enter lower-tier machines, preventing credential harvesting (mimikatz, LSASS dumps) and lateral movement."
-        }
-      },
-
-      az500: {
-        title: "Microsoft AZ-500: Azure Security Technologies",
-        score: "Passing: 700 / 1000",
-        readiness: "82%",
-        lead: "Demonstrates practical implementation of enterprise security controls, maintaining security posture, and identifying and remediating vulnerabilities across Azure networks, storage, compute, and identity.",
-        link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-        rows: [
-          {
-            domain: "1. Manage Identity and Access",
-            weight: "25-30%",
-            tested: "Microsoft Entra ID, enterprise roles, PIM, Conditional Access, Managed Identities.",
-            lec: "Azure Identity ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "2. Secure Networking",
-            weight: "20-25%",
-            tested: "Azure Firewall, Network Security Groups, Application Gateway WAF, Azure Bastion, Private Endpoints.",
-            lec: "Net Security ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "3. Secure Compute, Storage, and Databases",
-            weight: "20-25%",
-            tested: "Key Vault HSM, customer-managed keys (CMK), container security (AKS), Disk Encryption.",
-            lec: "Storage & Keys ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "4. Manage Security Operations",
-            weight: "25-30%",
-            tested: "Defender for Cloud, Microsoft Sentinel data ingestion, security alerts, and threat response.",
-            lec: "SecOps Monitoring ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          }
-        ],
-        scenario: {
-          domain: "Domain 2 · Secure Networking",
-          title: "Scenario: Isolating Azure Storage Accounts from Public Internet",
-          text: "An enterprise storage account stores sensitive customer PII. The requirements state that only Azure App Services within a dedicated Virtual Network can access the storage account, with zero public internet route. What is the recommended pattern?",
-          opts: [
-            { k: "A", t: "Use Storage Account access keys embedded in application code with no firewall rules.", ok: false },
-            { k: "B", t: "Deploy an Azure Private Endpoint for the blob subresource, integrate with Private DNS Zone, configure Virtual Network integration on App Service, and disable public network access on the storage account.", ok: true },
-            { k: "C", t: "Open port 443 to 0.0.0.0/0 on the Network Security Group.", ok: false },
-            { k: "D", t: "Rely solely on SAS tokens with 1-year expiry time.", ok: false }
-          ],
-          rationale: "Option B provides complete private network encapsulation: traffic flows over Microsoft's private backbone network with private RFC 1918 IPs, completely blocking all internet-based access vectors."
-        }
-      },
-
-      okta: {
-        title: "Okta Certified Professional & Administrator",
-        score: "Passing: 65% / Hands-on Graded",
-        readiness: "88%",
-        lead: "The industry standard certification for cloud-first IAM engineers. Proves proficiency in configuring Okta Universal Directory, SAML 2.0 / OIDC federation, automated provisioning (SCIM), and access policies.",
-        link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-        rows: [
-          {
-            domain: "1. Identity & User Management",
-            weight: "25%",
-            tested: "Universal Directory, custom user schemas, group rules, delegated administration.",
-            lec: "Universal Directory ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "2. Application Integration (SSO)",
-            weight: "30%",
-            tested: "SAML 2.0 assertion attributes, OIDC / OAuth 2.0 API access, bookmark apps, Okta Verify.",
-            lec: "SAML & OIDC SSO ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "3. Directory Integration & Provisioning",
-            weight: "25%",
-            tested: "Active Directory agent, LDAP agent, SCIM 2.0 outbound sync, attribute mapping & JIT provisioning.",
-            lec: "Okta SCIM & AD ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "4. Security & Authentication Policies",
-            weight: "20%",
-            tested: "Global session policy, authentication policies, Adaptive MFA, network zones, self-service recovery.",
-            lec: "Adaptive MFA ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          }
-        ],
-        scenario: {
-          domain: "Domain 3 · Provisioning & Lifecycle",
-          title: "Scenario: Configuring HR-Driven Real-time Ingestion to Okta",
-          text: "When a new employee is hired in Workday, their Okta identity must be created automatically within 5 minutes, their department attributes mapped, and their downstream Google Workspace and Salesforce accounts provisioned without manual admin intervention. What is the architecture?",
-          opts: [
-            { k: "A", t: "Export a CSV from Workday every Friday and manually upload it to Okta.", ok: false },
-            { k: "B", t: "Configure Workday Real-Time Sync via API integration as the Profile Master in Okta, define Group Rules based on department attributes, and enable SCIM provisioning on downstream apps with Create Users enabled.", ok: true },
-            { k: "C", t: "Write a client-side JavaScript bookmarklet that copies data from browser tabs.", ok: false },
-            { k: "D", t: "Disable Workday integration and manage users directly in Active Directory.", ok: false }
-          ],
-          rationale: "Option B delivers true enterprise Joiner-Mover-Leaver (JML) automation: Workday acts as the single source of truth (Profile Master), Okta calculates group memberships dynamically, and SCIM pushes downstream accounts instantly."
-        }
-      },
-
-      cyberark: {
-        title: "CyberArk Certified Trustee & Defender PAM",
-        score: "Passing: 70% / Production Tested",
-        readiness: "84%",
-        lead: "The benchmark qualification for Privileged Access Management (PAM) consultants. Covers deploying the Digital Vault, hardening Central Policy Manager (CPM), and routing sessions through PSM.",
-        link: "https://www.youtube.com/@Cloud-Knowledge/playlists",
-        rows: [
-          {
-            domain: "1. Digital Vault Architecture",
-            weight: "25%",
-            tested: "Vault server hardening, encryption keys, network firewall requirements, disaster recovery replication.",
-            lec: "Vault Architecture ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "2. Central Policy Manager (CPM)",
-            weight: "25%",
-            tested: "Master policy, platform parameters, reconcile accounts, password rotation plugins (Windows/Linux/Cisco).",
-            lec: "CPM Workflows ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "3. Privileged Session Manager (PSM)",
-            weight: "30%",
-            tested: "PSM server clustering, connection components, RDP/SSH session isolation, keystroke auditing.",
-            lec: "PSM Session Isolation ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          },
-          {
-            domain: "4. Safes, Permissions & Security Operations",
-            weight: "20%",
-            tested: "Safe design hierarchy, Dual-Control approval workflows, LDAP integration, Syslog integration to SIEM.",
-            lec: "Safe Governance ▶",
-            link: "https://www.youtube.com/@Cloud-Knowledge/playlists"
-          }
-        ],
-        scenario: {
-          domain: "Domain 2 · Central Policy Manager (CPM)",
-          title: "Scenario: Remediation of an Out-of-Sync Tier-0 Domain Admin Password",
-          text: "The CPM fails to change the password of an enterprise Domain Admin account because the password was changed out-of-band directly on a Domain Controller. The account is now flagged in error. What is the correct CyberArk remediation workflow?",
-          opts: [
-            { k: "A", t: "Delete the safe immediately and restore from tape backup.", ok: false },
-            { k: "B", t: "Trigger a Reconcile Account workflow using an assigned dedicated Tier-0 Reconcile account that possesses administrative reset privileges over the target OU, forcing the password into sync.", ok: true },
-            { k: "C", t: "Instruct the user to log into Windows with their old password forever.", ok: false },
-            { k: "D", t: "Disable the CPM service and manage privileged passwords in an Excel spreadsheet.", ok: false }
-          ],
-          rationale: "Option B is the standard CyberArk PAM pattern: when target password verification fails, the CPM invokes the Reconcile Account (which possesses 'Reset Password' rights) to override the target system password without needing the current invalid password."
-        }
-      }
-    };
-
-    function switchCert(certKey) {
-      const c = certData[certKey];
-      if (!c) return;
-
-      // Update tabs
-      document.querySelectorAll(".cert-tab").forEach(tab => {
-        tab.classList.toggle("on", tab.getAttribute("onclick").includes(certKey));
-      });
-
-      // Update score & readiness
-      document.getElementById("certScore").textContent = c.score;
-
-      // Update content HTML
-      let rowsHtml = "";
-      c.rows.forEach(r => {
-        rowsHtml += `
-          <tr class="cert-bp-row">
-            <td><strong>${r.domain}</strong></td>
-            <td class="n">${r.weight}</td>
-            <td>${r.tested}</td>
-            <td><a href="${r.link}" target="_blank" rel="noreferrer" style="color:var(--accent); font-family:var(--mono); font-size:12px;">${r.lec}</a></td>
-          </tr>
-        `;
-      });
-
-      let optsHtml = "";
-      c.scenario.opts.forEach(opt => {
-        optsHtml += `
-          <li class="${opt.ok ? 'ok' : ''}">
-            <span class="k">${opt.k}</span>
-            <span>${opt.t}</span>
-          </li>
-        `;
-      });
-
-      const container = document.getElementById("dynamicCertContent");
-      container.innerHTML = `
-        <h2 style="font-size:20px; margin-top:0;">${c.title}</h2>
-        <p class="cert-lead">${c.lead}</p>
-
-        <h3>Exam Blueprint & Domain Weightage</h3>
-        <div class="cert-tablewrap">
-          <table class="cert-bp">
-            <thead>
-              <tr>
-                <th>Exam Domain</th>
-                <th class="n">Weight</th>
-                <th>Tested Capabilities</th>
-                <th>Mapped Lecture</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${rowsHtml}
-            </tbody>
-          </table>
-        </div>
-
-        <h3 style="margin-top:28px;">Interactive Practice Question Scenario</h3>
-        <div class="cert-sample" open>
-          <summary>
-            <span class="cert-sample-domain">${c.scenario.domain}</span>
-            <strong>${c.scenario.title}</strong>
-          </summary>
-          <p style="font-size:13px; color:var(--muted); margin:10px 0 6px;">
-            ${c.scenario.text}
-          </p>
-          <ul class="cert-opts">
-            ${optsHtml}
-          </ul>
-          <div style="background:rgba(74,222,128,0.06); border-left:3px solid var(--accent); padding:10px 14px; border-radius:0 8px 8px 0; margin-top:10px;">
-            <strong style="color:var(--accent); font-size:12px; font-family:var(--mono);">ARCHITECTURE RATIONALE:</strong>
-            <p class="cert-rationale" style="margin-top:4px;">
-              ${c.scenario.rationale}
-            </p>
-          </div>
-        </div>
-      `;
-    }
-
-    // SEARCH BAR LOGIC
-    document.getElementById("topSearch").addEventListener("input", function(e) {
-      const q = e.target.value.toLowerCase().trim();
-      const cards = document.querySelectorAll(".ld-card, .ld-mini, .ld-row");
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        if (!q || text.includes(q)) {
-          card.style.display = "";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    });
-
-    // THEME TOGGLE
+    // Theme toggle
     document.getElementById("themeToggle").addEventListener("click", () => {
       const current = document.documentElement.getAttribute("data-theme");
       const next = current === "light" ? "dark" : "light";
       document.documentElement.setAttribute("data-theme", next);
     });
-
-    // INITIAL RENDER
-    renderTrack("iam");
   </script>
 </body>
 </html>

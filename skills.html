@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills Catalog — Cloud Knowledge Academy</title>
+  <meta name="description" content="Explore enterprise IAM, Microsoft Entra ID, Okta, CyberArk PAM, and Cloud Security skills with curated lectures and labs.">
+  
+  <!-- Fonts matching escbash -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Exact escbash CSS Files -->
+  <link rel="stylesheet" href="escbash_css_1.css">
+  <link rel="stylesheet" href="escbash_css_2.css">
+  <link rel="stylesheet" href="escbash_css_3.css">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --card: rgba(255, 255, 255, 0.02);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f2f6f5;
+      --muted: #8b9691;
+      --accent: #4ade80;
+      --accent-contrast: #06251b;
+      --accent-grad: linear-gradient(90deg, #4ade80, #2dd4bf);
+      --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(rgba(74, 222, 128, 0.07) 1px, transparent 1px),
+        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px, 10px 10px;
+      background-position: 0 0, 20px 20px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .brand-ck {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17.5px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-ck-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--terminal-bg, #080b09);
+      border: 1px solid rgba(74, 222, 128, 0.35);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(74, 222, 128, 0.22);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .brand-ck-text span {
+      color: var(--accent);
+    }
+
+    /* Filter pills */
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 28px;
+    }
+
+    .filter-pill {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 99px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 6px 16px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-pill:hover {
+      border-color: rgba(74, 222, 128, 0.4);
+      color: var(--text);
+    }
+
+    .filter-pill.active {
+      background: rgba(74, 222, 128, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-grid-bg"></div>
+
+  <div class="app-shell">
+    <!-- Topbar matching escbash -->
+    <header class="topbar">
+      <a class="brand-ck" href="index.html">
+        <div class="brand-ck-icon">$&gt;</div>
+        <div class="brand-ck-text">Cloud<span>Knowledge</span></div>
+      </a>
+
+      <div class="topbar-search">
+        <input type="search" id="topSearch" placeholder="Search IAM topics, tools, protocols…" aria-label="Search skills"/>
+      </div>
+
+      <nav class="nav-links">
+        <a class="nav-link active" href="skills.html">Skills</a>
+        <a class="nav-link" href="roadmaps.html">Roadmaps</a>
+        <a class="nav-link" href="certifications.html">Certifications</a>
+        <a class="nav-link" href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noreferrer" style="color:var(--accent);">YouTube Channel ↗</a>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" title="Theme toggle" aria-label="Toggle theme">◐</button>
+    </header>
+
+    <main class="page">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span>Skills Catalog</span>
+      </nav>
+
+      <div style="margin-bottom:24px;">
+        <h1 style="font-size:32px; font-weight:700; margin:0 0 8px; letter-spacing:-0.02em;">
+          ⚡ Enterprise IAM & Cloud Security Skills
+        </h1>
+        <p class="muted" style="max-width:70ch; margin:0; font-size:15px; line-height:1.6;">
+          Individual skill modules designed to take you from foundational identity protocols to production enterprise PAM and Cloud SIEM defense.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-pills">
+        <button class="filter-pill active" onclick="filterCat('all')">All Skills (16)</button>
+        <button class="filter-pill" onclick="filterCat('iam')">Identity & Access (Entra / Okta)</button>
+        <button class="filter-pill" onclick="filterCat('pam')">Privileged Access (PAM / CyberArk)</button>
+        <button class="filter-pill" onclick="filterCat('endpoint')">Endpoint & Intune (MDM / MAM)</button>
+        <button class="filter-pill" onclick="filterCat('cloudsec')">Cloud Security & SIEM (Defender / Sentinel)</button>
+      </div>
+
+      <!-- Main Cards Grid -->
+      <div class="ld-grid" id="mainCardsGrid">
+        <!-- 1 -->
+        <a class="ld-card" data-cat="iam" href="https://www.youtube.com/playlist?list=PL_Xv5gfe_h5c6h5y7B7qZ1zZ8bX6v7_w" target="_blank" rel="noreferrer">
+          <span class="ld-chip beg">Beginner to Pro</span>
+          <h3>Microsoft Entra ID (Azure AD)</h3>
+          <p>Cloud directory services, multi-tenant architectures, user/group lifecycles, and RBAC directory roles.</p>
+          <div class="ld-mn"><b>18</b> lectures · Free on YouTube ▶</div>
+        </a>
+
+        <!-- 2 -->
+        <a class="ld-card" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <span class="ld-chip int">Federation Core</span>
+          <h3>Okta Workforce Identity</h3>
+          <p>Universal Directory, SAML 2.0 assertions, OIDC flows, SCIM 2.0 provisioning, and Okta Access Gateway.</p>
+          <div class="ld-mn"><b>24</b> lectures · Hands-on Labs ▶</div>
+        </a>
+
+        <!-- 3 -->
+        <a class="ld-card" data-cat="pam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <span class="ld-chip rm">Tier-0 Security</span>
+          <h3>CyberArk PAM (Digital Vault)</h3>
+          <p>Enterprise Password Vault (EPV), CPM password rotation, PSM session recording, and safe architecture.</p>
+          <div class="ld-mn"><b>16</b> lectures · Production Scenarios ▶</div>
+        </a>
+
+        <!-- 4 -->
+        <a class="ld-card" data-cat="endpoint" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <span class="ld-chip int">Endpoint Modern</span>
+          <h3>Microsoft Intune & Endpoint Management</h3>
+          <p>Device enrollment, compliance policy gates, MAM application protection, and Windows Autopilot zero-touch.</p>
+          <div class="ld-mn"><b>20</b> lectures · Enterprise MDM ▶</div>
+        </a>
+
+        <!-- 5 -->
+        <a class="ld-card" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <span class="ld-chip rm">Zero Trust Engine</span>
+          <h3>Conditional Access & PIM</h3>
+          <p>Risk signals, Continuous Access Evaluation, MFA strength, and Just-In-Time role elevation.</p>
+          <div class="ld-mn"><b>14</b> lectures · Policy Blueprints ▶</div>
+        </a>
+
+        <!-- 6 -->
+        <a class="ld-card" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <span class="ld-chip int">Protocols Deep Dive</span>
+          <h3>SAML 2.0, OAuth 2.0 & OIDC</h3>
+          <p>Token claims, assertions, PKCE grant flow, signing certificates, and API authorization.</p>
+          <div class="ld-mn"><b>12</b> lectures · Deep Packet Labs ▶</div>
+        </a>
+
+        <!-- 7 -->
+        <a class="ld-card" data-cat="cloudsec" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <span class="ld-chip rm">Cloud SOC & SIEM</span>
+          <h3>Microsoft Sentinel & Defender XDR</h3>
+          <p>Defender for Cloud, Defender for Endpoint/Identity, KQL hunting queries, and security workbooks.</p>
+          <div class="ld-mn"><b>15</b> lectures · SOC Defense ▶</div>
+        </a>
+
+        <!-- 8 -->
+        <a class="ld-card" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <span class="ld-chip beg">Hybrid Foundation</span>
+          <h3>Active Directory Domain Services & Kerberos</h3>
+          <p>On-premises AD DS, Forest trusts, Kerberos delegation, Group Policy, and Entra Connect Sync.</p>
+          <div class="ld-mn"><b>19</b> lectures · Legacy to Cloud ▶</div>
+        </a>
+      </div>
+
+      <!-- Miniature Cards Divider -->
+      <div class="ld-divline">ALL ENTERPRISE SPECIALIZATION MODULES</div>
+
+      <!-- 5-Column Mini Cards Grid matching escbash -->
+      <div class="ld-minis" id="miniCardsGrid">
+        <a class="ld-mini" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🔑 Entra Connect Sync</h4>
+          <div class="ld-mn">Password Hash & Pass-Through Sync</div>
+        </a>
+
+        <a class="ld-mini" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🛡️ PIM Just-In-Time</h4>
+          <div class="ld-mn">Time-bound Activation & Approvals</div>
+        </a>
+
+        <a class="ld-mini" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>⚡ Okta SCIM 2.0</h4>
+          <div class="ld-mn">Automated User Lifecycle Sync</div>
+        </a>
+
+        <a class="ld-mini" data-cat="pam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🔐 CyberArk CPM</h4>
+          <div class="ld-mn">Automated Password Management</div>
+        </a>
+
+        <a class="ld-mini" data-cat="endpoint" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>💻 Intune Autopilot</h4>
+          <div class="ld-mn">OOBE Zero-Touch Provisioning</div>
+        </a>
+
+        <a class="ld-mini" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>⚙️ App Registrations</h4>
+          <div class="ld-mn">Service Principals & MS Graph API</div>
+        </a>
+
+        <a class="ld-mini" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🌐 B2B Cross-Tenant Sync</h4>
+          <div class="ld-mn">Direct Federation & Guest Access</div>
+        </a>
+
+        <a class="ld-mini" data-cat="endpoint" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>📱 MAM App Protection</h4>
+          <div class="ld-mn">Data Leak Prevention on Mobile</div>
+        </a>
+
+        <a class="ld-mini" data-cat="cloudsec" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🔍 Sentinel KQL Queries</h4>
+          <div class="ld-mn">Identity Threat Hunting & Logic</div>
+        </a>
+
+        <a class="ld-mini" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🏢 Active Directory GPO</h4>
+          <div class="ld-mn">Tier-0 Hardening & Kerberos</div>
+        </a>
+
+        <a class="ld-mini" data-cat="pam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>📺 CyberArk PSM</h4>
+          <div class="ld-mn">RDP/SSH Session Isolation</div>
+        </a>
+
+        <a class="ld-mini" data-cat="cloudsec" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🎯 Defender for Endpoint</h4>
+          <div class="ld-mn">Attack Surface Reduction (ASR)</div>
+        </a>
+
+        <a class="ld-mini" data-cat="cloudsec" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>📦 Purview DLP</h4>
+          <div class="ld-mn">Sensitivity Labels & Encryption</div>
+        </a>
+
+        <a class="ld-mini" data-cat="iam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🛡️ Entra ID Protection</h4>
+          <div class="ld-mn">User & Sign-in Risk Remediation</div>
+        </a>
+
+        <a class="ld-mini" data-cat="pam" href="https://www.youtube.com/@Cloud-Knowledge/playlists" target="_blank" rel="noreferrer">
+          <h4>🚨 CyberArk PTA</h4>
+          <div class="ld-mn">Privileged Threat Analytics</div>
+        </a>
+      </div>
+    </main>
+
+    <!-- FOOTER matching escbash -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-brand">
+          <div class="brand-ck">
+            <div class="brand-ck-icon">$&gt;</div>
+            <div class="brand-ck-text">Cloud<span>Knowledge</span></div>
+          </div>
+          <p>Production-grade hands-on education in Enterprise Identity, Zero Trust Architecture, and Cloud Security.</p>
+        </div>
+
+        <div class="site-footer-col">
+          <div class="site-footer-title">Roadmaps</div>
+          <a href="roadmaps.html?track=iam">Enterprise IAM & Zero Trust</a>
+          <a href="roadmaps.html?track=intune">M365, Intune & Endpoint</a>
+          <a href="roadmaps.html?track=pam">CyberArk PAM Security</a>
+          <a href="roadmaps.html?track=cloudsec">Cloud Security & SOC</a>
+        </div>
+
+        <div class="site-footer-col">
+          <div class="site-footer-title">Platform</div>
+          <a href="index.html">Home</a>
+          <a href="skills.html">Skills Catalog</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noreferrer">YouTube Playlists</a>
+        </div>
+
+        <div class="site-footer-col">
+          <div class="site-footer-title">Community</div>
+          <a href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noreferrer">YouTube (@Cloud-Knowledge)</a>
+          <a href="https://github.com/Shivi7566" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://cloudknowledge.in" target="_blank" rel="noreferrer">CloudKnowledge.in</a>
+        </div>
+      </div>
+
+      <div class="site-footer-legal">
+        <div>© 2026 Cloud Knowledge Academy. Built for enterprise cloud security engineers.</div>
+        <div>Free & Open Learning Resources</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Search filter
+    document.getElementById("topSearch").addEventListener("input", function(e) {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll(".ld-card, .ld-mini").forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = (!q || text.includes(q)) ? "" : "none";
+      });
+    });
+
+    // Category filter pills
+    function filterCat(cat) {
+      document.querySelectorAll(".filter-pill").forEach(p => {
+        p.classList.toggle("active", p.getAttribute("onclick").includes(`'${cat}'`));
+      });
+
+      document.querySelectorAll(".ld-card, .ld-mini").forEach(card => {
+        const c = card.getAttribute("data-cat");
+        if (cat === "all" || c === cat) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Theme toggle
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+    });
+  </script>
+</body>
+</html>
